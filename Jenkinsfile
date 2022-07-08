@@ -11,7 +11,9 @@ pipeline{
 		stage('Build') {
 
 			steps {
-				sh 'docker build -t ypratik127/nodejs .'
+				sh 'docker images -f dangling=true'
+				sh 'docker image prune'
+				sh 'docker build -t ypratik127/nodejs:latest .'
 			}
 		}
 
@@ -25,7 +27,7 @@ pipeline{
 		stage('Tag') {
 		      
 			steps {
-				sh 'docker rename localhost/ypratik127/nodejs ypratik127/nodejs:latest'
+				sh 'docker tag localhost/ypratik127/nodejs:latest ypratik127/nodejs:latest'
 				sh 'docker images'
 			        echo "Tagging done"	
 			}
