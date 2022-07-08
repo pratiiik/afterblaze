@@ -26,6 +26,7 @@ pipeline{
 		      
 			steps {
 				sh 'docker tag nodejs ypratik127/nodejs:latest'
+				sh 'docker images'
 			        echo "Tagging done"	
 			}
 		}	
