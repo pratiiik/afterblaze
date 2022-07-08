@@ -12,9 +12,8 @@ pipeline{
 
 			steps {
 				sh 'docker images -f dangling=true'
-				sh 'docker logout'
 				sh 'docker rmi $(docker images -q -f dangling=true)'
-				sh 'docker build -t nodejs .'
+				sh 'docker build -t ypratik127/nodejs:latest .'
 			}
 		}
 
@@ -28,7 +27,7 @@ pipeline{
 		stage('Tag') {
 		      
 			steps {
-				sh 'docker tag nodejs ypratik127/nodejs:latest'
+				"sh 'docker tag nodejs ypratik127/nodejs:latest'"
 				sh 'docker images'
 			        echo "Tagging done"	
 			}
