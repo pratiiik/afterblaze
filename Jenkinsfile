@@ -12,7 +12,7 @@ pipeline{
 
 			steps {
 				sh 'docker images -f dangling=true'
-				sh 'docker image prune -y'
+				sh 'docker rmi $(docker images -q -f dangling=true)'
 				sh 'docker build -t ypratik127/nodejs:latest .'
 			}
 		}
