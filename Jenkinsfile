@@ -13,7 +13,7 @@ pipeline{
 			steps {
 				sh 'docker images -f dangling=true'
 				sh 'docker rmi $(docker images -q -f dangling=true)'
-				sh 'docker build -t nodejs .'
+				sh 'docker build .'
 			}
 		}
 
