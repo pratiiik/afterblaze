@@ -25,7 +25,7 @@ pipeline{
 		stage('Tag') {
 		      
 			steps {
-				sh 'docker tag localhost/ypratik127/nodejs ypratik127/nodejs:latest'
+				sh 'docker rename localhost/ypratik127/nodejs ypratik127/nodejs:latest'
 				sh 'docker images'
 			        echo "Tagging done"	
 			}
