@@ -11,7 +11,7 @@ pipeline{
 		stage('Build') {
 
 			steps {
-				sh 'docker build -t ypratik127/nodejs:latest .'
+				sh 'docker build -t nodejs .'
 			}
 		}
 
@@ -25,6 +25,7 @@ pipeline{
 		stage('Tag') {
 		      
 			steps {
+				sh 'docker tag nodejs ypratik127/nodejs:latest'
 			        echo "Tagging done"	
 			}
 		}	
